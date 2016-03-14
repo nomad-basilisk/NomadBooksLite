@@ -1,0 +1,21 @@
+﻿<Window x:Class="NomadBooksLite.Forms.ConstitutionWizard.Constitution_Wizard_2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Constitution Wizard Step 2" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen" GotKeyboardFocus="Refresh_Grid">
+    <Grid>
+        <Label Content="Constitution Wizard: Step 2" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <GroupBox Header="Members" Margin="10,46,25,100" >
+            <StackPanel Orientation="Vertical" Margin="0,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Add New Member" Click="AddMember" Margin="10,10,10,0" Width="120" HorizontalAlignment="Left"/>
+                    <Button Content="Refresh List" Click="Refresh_Grid" Margin="10,10,10,0" Width="80" HorizontalAlignment="Right"/>
+                </StackPanel>
+                <DataGrid Name="membersGrd" Margin="10" Height="240" />
+            </StackPanel>
+        </GroupBox>
+
+        <Button Content="Finish" Click="NextStep" Height="30" Width="75" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="25" />
+        <Button Content="Cancel" Click="CancelSetup" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="75" Margin="25"/>
+    </Grid>
+</Window>

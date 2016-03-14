@@ -1,0 +1,45 @@
+﻿<Window x:Class="NomadBooksLite.Forms.Remove_Member"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Remove_Member" Height="358" Width="600"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1">
+                <Label Content="Please select member to remove :" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="2"/>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox Text="Search By" IsEditable="True" IsReadOnly="True" Height="23" Name="searchBy_ComboBox" Width="120" Margin="5">
+                        <ComboBoxItem Content="Member Name"/>
+                        <ComboBoxItem Content="Stokvel Name"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox Name="searchTextBox" Width="140" Margin="5" TextChanged="searchTextBox_TextChanged" />
+                    <Button Click="Search_Click" Content="Search" Width="80" Margin="5"/>
+                    <Button Click="grdRefresh" Content="Clear" Width="80" Margin="5"/>
+                </StackPanel>
+                <DataGrid Name="grdMember" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" AutoGenerateColumns="False" ColumnWidth="*" Height="200">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Remove Member">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="Remove_Member_Click" CommandParameter="{Binding Path=id}">Remove</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Stokvel Name" Binding="{Binding Stokvel_Name}" />
+                        <DataGridTextColumn Header="Member Name" Binding="{Binding Name}" />
+                        <DataGridTextColumn Header="ID Number" Binding="{Binding Id_Number}" />
+                        <DataGridTextColumn Header="Contact Number" Binding="{Binding Cellphone}" />
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+                <StatusBar HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StatusBarItem  >
+                        <Label Name="StatusLabel" Content="..." />
+                    </StatusBarItem>
+                </StatusBar>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
